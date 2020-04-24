@@ -1,13 +1,6 @@
-FROM haproxy:1.6
+FROM haproxy:2.1-alpine
 
-VOLUME /etc/ssl/private
-ENV CERT_FILE haproxy.pem
-ENV BACKEND_HOST backend
-ENV BACKEND_PORT 80
-
-EXPOSE 80 443
+RUN apk --no-cache add openssl
 
 COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
-COPY start.sh /usr/local/bin/start_haproxy
-
-CMD ["start_haproxy"]
+COPY docker-entrypoint.sh /
