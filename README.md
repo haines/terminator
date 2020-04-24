@@ -4,7 +4,7 @@ Put terminator in front of your services to terminate SSL and redirect traffic f
 
 ## How to use
 
-Run the `haines/terminator` Docker image, providing the target service's address (`hostname:port`) as the `BACKEND_ADDRESS` environment variable.
+Run the `ahaines/terminator` Docker image, providing the target service's address (`hostname:port`) as the `BACKEND_ADDRESS` environment variable.
 
 For example, to proxy traffic to a service listening on port 8000 on the host (assuming you are running Docker for Mac or Docker for Windows):
 
@@ -16,7 +16,7 @@ $ docker run \
     --publish 80:80 \
     --publish 433:443 \
     --rm \
-    haines/terminator
+    ahaines/terminator
 ```
 
 Your service is now available at https://localhost, and http://localhost will redirect to HTTPS.
